@@ -18,8 +18,8 @@ window.SITE = {
 
   // Chemins vers les images du dossier img/ (laisser vide pour un emplacement gris)
   photos: {
-    principale: "",
-    secondaire: "",
+    principale: "img/terrasse.jpg",
+    secondaire: "img/salle.jpg",
     legendeSecondaire: "Photo de la salle",
   },
 

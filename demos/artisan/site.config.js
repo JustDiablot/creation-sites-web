@@ -22,8 +22,8 @@ window.SITE = {
   },
 
   photos: {
-    principale: "",
-    secondaire: "",
+    principale: "img/atelier.jpg",
+    secondaire: "img/menuisier.jpg",
     legendeSecondaire: "Photo de l'artisan au travail",
   },
 
@@ -39,12 +39,12 @@ window.SITE = {
   realisations: {
     intro: "Quelques projets récents, réalisés pour des particuliers de la région.",
     liste: [
-      { titre: "Cuisine en chêne massif", legende: "Chêne huilé, plan de travail en bois debout, Brunoy" },
-      { titre: "Escalier suspendu", legende: "Frêne et garde-corps en acier, Yerres" },
-      { titre: "Bibliothèque sur mesure", legende: "Toute hauteur avec échelle coulissante, Montgeron" },
-      { titre: "Dressing sous combles", legende: "Optimisation des rampants, Épinay-sous-Sénart" },
-      { titre: "Terrasse en bois", legende: "Pin traité classe 4, 35 m², Boussy-Saint-Antoine" },
-      { titre: "Porte d'entrée", legende: "Chêne massif, vitrage feuilleté, Brunoy" },
+      { titre: "Cuisine en chêne massif", photo: "img/cuisine.jpg", legende: "Chêne huilé, plan de travail en bois debout, Brunoy" },
+      { titre: "Escalier suspendu", photo: "img/escalier.jpg", legende: "Frêne et garde-corps en acier, Yerres" },
+      { titre: "Bibliothèque sur mesure", photo: "img/bibliotheque.jpg", legende: "Toute hauteur avec échelle coulissante, Montgeron" },
+      { titre: "Dressing sous combles", photo: "img/dressing.jpg", legende: "Optimisation des rampants, Épinay-sous-Sénart" },
+      { titre: "Terrasse en bois", photo: "img/terrasse.jpg", legende: "Pin traité classe 4, 35 m², Boussy-Saint-Antoine" },
+      { titre: "Porte d'entrée", photo: "img/porte.jpg", legende: "Chêne massif, vitrage feuilleté, Brunoy" },
     ],
   },
 

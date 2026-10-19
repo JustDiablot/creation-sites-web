@@ -21,8 +21,8 @@ window.SITE = {
   },
 
   photos: {
-    principale: "",
-    secondaire: "",
+    principale: "img/boutique.jpg",
+    secondaire: "img/rayons.jpg",
     legendeSecondaire: "Photo des rayons",
   },
 
@@ -34,12 +34,12 @@ window.SITE = {
   produits: {
     intro: "Une sélection courte et soignée, renouvelée au fil des saisons et des arrivages.",
     liste: [
-      { nom: "Huiles et vinaigres", description: "Huiles d'olive de Provence et d'Andalousie, vinaigres de Xérès et de cidre." },
-      { nom: "Fromages", description: "Une quinzaine de fromages au lait cru, affinés en cave et coupés à la demande." },
-      { nom: "Charcuterie", description: "Jambons secs, saucissons et terrines de producteurs fermiers." },
-      { nom: "Vins et spiritueux", description: "Vins de vignerons indépendants, bières artisanales et quelques rhums arrangés." },
-      { nom: "Épicerie sucrée", description: "Confitures, miels de l'Essonne, chocolats et biscuits de biscuiterie artisanale." },
-      { nom: "Paniers cadeaux", description: "Composés selon vos envies et votre budget, emballés sur place.", prix: "À partir de 25 €" },
+      { nom: "Huiles et vinaigres", photo: "img/huiles.jpg", description: "Huiles d'olive de Provence et d'Andalousie, vinaigres de Xérès et de cidre." },
+      { nom: "Fromages", photo: "img/fromages.jpg", description: "Une quinzaine de fromages au lait cru, affinés en cave et coupés à la demande." },
+      { nom: "Charcuterie", photo: "img/charcuterie.jpg", description: "Jambons secs, saucissons et terrines de producteurs fermiers." },
+      { nom: "Vins et spiritueux", photo: "img/vins.jpg", description: "Vins de vignerons indépendants, bières artisanales et quelques rhums arrangés." },
+      { nom: "Épicerie sucrée", photo: "img/epicerie-sucree.jpg", description: "Confitures, miels de l'Essonne, chocolats et biscuits de biscuiterie artisanale." },
+      { nom: "Paniers cadeaux", photo: "img/paniers.jpg", description: "Composés selon vos envies et votre budget, emballés sur place.", prix: "À partir de 25 €" },
     ],
     note: "Produits selon arrivages et saisons.",
   },

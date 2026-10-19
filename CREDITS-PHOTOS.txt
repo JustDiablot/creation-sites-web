@@ -1,0 +1,20 @@
+Photos des démos : Unsplash (licence Unsplash, usage commercial autorisé, sans attribution obligatoire).
+
+artisan/img/atelier.jpg https://images.unsplash.com/photo-1590880795696-20c7dfadacde
+artisan/img/bibliotheque.jpg https://images.unsplash.com/photo-1573219093925-cea25da23f54
+artisan/img/cuisine.jpg https://images.unsplash.com/photo-1628797279405-8cd6ffdbeb6c
+artisan/img/dressing.jpg https://images.unsplash.com/photo-1649361811423-a55616f7ab11
+artisan/img/escalier.jpg https://images.unsplash.com/photo-1591638212063-c2f69701a931
+artisan/img/menuisier.jpg https://images.unsplash.com/photo-1631396326838-de37e5f8bcbc
+artisan/img/porte.jpg https://images.unsplash.com/photo-1748896612325-ebc2aa9bd548
+artisan/img/terrasse.jpg https://images.unsplash.com/photo-1574120583586-de8847ae992c
+cafe/img/salle.jpg https://images.unsplash.com/photo-1544031064-9de80864ade5
+cafe/img/terrasse.jpg https://images.unsplash.com/photo-1692866267953-2f156f23fc69
+commerce/img/boutique.jpg https://images.unsplash.com/photo-1610057052613-bb574bb4e4c9
+commerce/img/charcuterie.jpg https://images.unsplash.com/photo-1542901031-ec5eeb518e83
+commerce/img/epicerie-sucree.jpg https://images.unsplash.com/photo-1622448559300-6df8495a1574
+commerce/img/fromages.jpg https://images.unsplash.com/photo-1722718461923-c69728f7640b
+commerce/img/huiles.jpg https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5
+commerce/img/paniers.jpg https://images.unsplash.com/photo-1773450970959-cef81e9b1053
+commerce/img/rayons.jpg https://images.unsplash.com/photo-1592178036182-5400889dfc74
+commerce/img/vins.jpg https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea
