@@ -34,8 +34,8 @@ window.SITE = {
     ville: "Brunoy",
     telephone: "01 23 45 67 89",
     email: "contact@exemple.fr",
-    latitude: 48.6978,
-    longitude: 2.5027,
+    latitude: 48.69791,
+    longitude: 2.50443,
   },
 
   // Laisser vide ce qui n'existe pas
