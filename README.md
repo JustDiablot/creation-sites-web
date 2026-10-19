@@ -4,7 +4,9 @@ Site de présentation des modèles, à publier sur GitHub Pages. Aucun build, au
 
 ## Contenu
 
-- `index.html`, `vitrine.css`, `vitrine.js` : la vitrine (modèles, étapes, formulaire qui prépare le mail de demande).
+- `index.html` : présentation (modèles, étapes, hébergement, mentions légales).
+- `demande.html` : formulaire qui prépare le mail de demande (`demande.html?modele=cafe` présélectionne un modèle).
+- `vitrine.css`, `vitrine.js` : styles et script communs aux deux pages.
 - `moteur/` : moteur commun à tous les sites clients (`app.js`, `style.css`, polices).
 - `demos/cafe`, `demos/commerce`, `demos/artisan` : les démos, chacune décrite par son `site.config.js`.
 

@@ -56,7 +56,7 @@
 
   // ---------- Modèles ----------
 
-  $("liste-modeles").innerHTML = MODELES.map((m) => `
+  if ($("liste-modeles")) $("liste-modeles").innerHTML = MODELES.map((m) => `
     <article class="modele">
       <a class="modele__apercu" href="demos/${m.id}/index.html" target="_blank" rel="noopener" aria-label="Ouvrir la démo ${esc(m.nom)}">
         <iframe src="demos/${m.id}/index.html" title="Aperçu ${esc(m.nom)}" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
@@ -66,9 +66,24 @@
       <ul class="modele__points">${m.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
       <div class="actions">
         <a class="bouton bouton--contour" href="demos/${m.id}/index.html" target="_blank" rel="noopener">Voir la démo</a>
-        <button class="bouton" type="button" data-choisir="${m.id}">Choisir ce modèle</button>
+        <a class="bouton" href="demande.html?modele=${m.id}">Choisir ce modèle</a>
       </div>
     </article>`).join("");
+
+  // ---------- Commun aux deux pages ----------
+
+  $("annee").textContent = new Date().getFullYear();
+  if ($("mentions-contact")) $("mentions-contact").innerHTML = `<a href="mailto:${CONFIG.email}">${CONFIG.email}</a>`;
+  if ($("prix") && CONFIG.prix) {
+    $("prix").textContent = CONFIG.prix;
+    $("prix").hidden = false;
+  }
+
+  // ---------- Page de demande ----------
+
+  if (!form) return;
+
+  $("adresse").textContent = CONFIG.email;
 
   $("choix-modele").innerHTML = MODELES.map((m, i) => `
     <label class="choix__option"><input type="radio" name="modele" value="${m.id}"${i === 0 ? " checked" : ""}> ${esc(m.nom)}</label>`
@@ -92,13 +107,9 @@
       <span>Choisissez pour moi</span>
     </label>`;
 
-  document.querySelectorAll("[data-choisir]").forEach((bouton) => {
-    bouton.addEventListener("click", () => {
-      form.querySelector(`input[name="modele"][value="${bouton.dataset.choisir}"]`).checked = true;
-      majApercu();
-      $("demande").scrollIntoView();
-    });
-  });
+  const modeleDemande = new URLSearchParams(location.search).get("modele");
+  const radioModele = form.querySelector(`input[name="modele"][value="${CSS.escape(modeleDemande || "")}"]`);
+  if (radioModele) radioModele.checked = true;
 
   // ---------- Mail ----------
 
@@ -236,16 +247,6 @@
 
   form.addEventListener("input", majApercu);
   form.addEventListener("change", majApercu);
-
-  // ---------- Divers ----------
-
-  $("adresse").textContent = CONFIG.email;
-  $("mentions-contact").innerHTML = `<a href="mailto:${CONFIG.email}">${CONFIG.email}</a>`;
-  $("annee").textContent = new Date().getFullYear();
-  if (CONFIG.prix) {
-    $("prix").textContent = CONFIG.prix;
-    $("prix").hidden = false;
-  }
 
   majApercu();
 })();

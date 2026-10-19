@@ -19,7 +19,7 @@
         <a href="#modeles">Modèles</a>
         <a href="#etapes">Comment ça marche</a>
         <a href="#hebergement">Hébergement</a>
-        <a href="#demande">Votre demande</a>
+        <a class="entete__action" href="demande.html">Faire ma demande</a>
       </nav>
     </div>
   </header>
@@ -34,7 +34,7 @@
           <p class="vitrine__prix" id="prix" hidden></p>
           <div class="actions">
             <a class="bouton" href="#modeles">Voir les modèles</a>
-            <a class="bouton bouton--contour" href="#demande">Faire ma demande</a>
+            <a class="bouton bouton--contour" href="demande.html">Faire ma demande</a>
           </div>
         </div>
       </div>
@@ -122,105 +122,15 @@
       </div>
     </section>
 
-    <section class="section" id="demande" aria-labelledby="titre-demande">
-      <div class="conteneur demande__grille">
-        <form class="demande" id="formulaire" novalidate>
-          <div class="section__entete">
-            <h2 id="titre-demande">Votre demande</h2>
-            <p>Remplissez ces quelques champs : un mail tout prêt est créé, il ne vous reste qu'à y joindre vos fichiers et à l'envoyer.</p>
-          </div>
-
-          <fieldset>
-            <legend>Vous</legend>
-            <div class="champs">
-              <label>Nom de l'établissement <input name="etablissement" required autocomplete="organization"></label>
-              <label>Activité <input name="activite" placeholder="Café, épicerie, menuiserie..."></label>
-              <label>Votre nom <input name="nom" required autocomplete="name"></label>
-              <label>Téléphone <input name="telephone" type="tel" autocomplete="tel"></label>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Modèle</legend>
-            <div class="choix" id="choix-modele"></div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Vos éléments</legend>
-            <p class="aide">Pour chaque élément, dites-moi si vous me l'envoyez ou si vous me laissez choisir.</p>
-
-            <div class="element">
-              <p class="element__nom">Logo</p>
-              <label><input type="radio" name="logo" value="joint" checked> Je le joins au mail</label>
-              <label><input type="radio" name="logo" value="aucun"> Je n'en ai pas : mettez simplement mon nom</label>
-              <label class="autre"><input type="radio" name="logo" value="autre"> Autre :
-                <input type="text" name="logo_autre" data-autre="logo" placeholder="ex. il faudrait le moderniser, il est sur ma carte de visite..."></label>
-            </div>
-
-            <div class="element">
-              <p class="element__nom">Photos</p>
-              <label><input type="radio" name="photos" value="joint" checked> Je joins quelques photos (boutique, produits, réalisations)</label>
-              <label><input type="radio" name="photos" value="libre"> Choisissez des photos libres de droits</label>
-              <label class="autre"><input type="radio" name="photos" value="autre"> Autre :
-                <input type="text" name="photos_autre" data-autre="photos" placeholder="ex. un mélange des deux, je veux un shooting photo..."></label>
-            </div>
-
-            <div class="element">
-              <p class="element__nom">Style d'écriture</p>
-              <div class="polices" id="choix-police"></div>
-              <label class="autre"><input type="radio" name="police" value="autre"> Autre :
-                <input type="text" name="police_autre" data-autre="police" placeholder="ex. comme sur ma devanture, une police manuscrite..."></label>
-            </div>
-
-            <div class="element">
-              <p class="element__nom">Couleurs</p>
-              <label><input type="radio" name="couleurs" value="libre" checked> Choisissez pour moi</label>
-              <label><input type="radio" name="couleurs" value="choisi"> Je les choisis</label>
-              <label class="autre"><input type="radio" name="couleurs" value="autre"> Autre :
-                <input type="text" name="couleurs_autre" data-autre="couleurs" placeholder="ex. les couleurs de mon logo, pas de rose..."></label>
-              <div class="couleurs" id="couleurs" hidden>
-                <label><input type="color" name="couleur1" value="#7a2e2a"> Couleur principale</label>
-                <label><input type="color" name="couleur2" value="#f4efe6"> Couleur de fond</label>
-              </div>
-            </div>
-
-            <div class="element">
-              <p class="element__nom">Textes</p>
-              <label><input type="radio" name="textes" value="joint" checked> Je vous envoie mes textes</label>
-              <label><input type="radio" name="textes" value="libre"> Rédigez-les à partir de nos échanges</label>
-              <label class="autre"><input type="radio" name="textes" value="autre"> Autre :
-                <input type="text" name="textes_autre" data-autre="textes" placeholder="ex. j'ai déjà des textes sur Facebook, à reprendre..."></label>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Ce que vous voulez sur le site</legend>
-            <p class="aide">Cochez tout ce qui vous intéresse, même si vous n'êtes pas sûr : on en discutera.</p>
-            <div class="options" id="options"></div>
-            <label class="autre autre--seul">Autre :
-              <input type="text" name="options_autre" placeholder="ex. une page recrutement, une newsletter..."></label>
-          </fieldset>
-
-          <fieldset>
-            <legend>Remarques</legend>
-            <label class="pleine">Une idée, un site que vous aimez, une contrainte ?
-              <textarea name="remarques" rows="4"></textarea>
-            </label>
-          </fieldset>
-        </form>
-
-        <aside class="apercu" aria-labelledby="titre-apercu">
-          <h3 id="titre-apercu">Votre mail</h3>
-          <p class="apercu__a">À : <span id="adresse"></span></p>
-          <pre class="apercu__texte" id="apercu" tabindex="0"></pre>
-          <div class="actions">
-            <a class="bouton" id="ouvrir-mail" href="#">Ouvrir dans ma messagerie</a>
-            <button class="bouton bouton--contour" type="button" id="copier">Copier le texte</button>
-          </div>
-          <p class="apercu__info" id="info-copie" aria-live="polite"></p>
-          <p class="apercu__info">Pensez à joindre vos fichiers. Si vos photos sont lourdes, envoyez-les avec un lien WeTransfer ou Smash.</p>
-          <p class="apercu__info">Ce site n'enregistre rien : le texte est préparé dans votre navigateur et c'est vous qui envoyez le mail.</p>
-        </aside>
+    <section class="section appel" aria-labelledby="titre-appel">
+      <div class="conteneur appel__grille">
+        <div>
+          <h2 id="titre-appel">Un projet&nbsp;?</h2>
+          <p>Choisissez un modèle, indiquez ce que vous avez déjà et ce que vous souhaitez : un mail tout prêt est créé pour vous, en quelques minutes.</p>
+        </div>
+        <div class="actions">
+          <a class="bouton" href="demande.html">Faire ma demande</a>
+        </div>
       </div>
     </section>
 

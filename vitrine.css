@@ -450,3 +450,69 @@
     display: none;
   }
 }
+
+/* Navigation entre les deux pages */
+
+.entete__nav .entete__action {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Appel à l'action en bas de la présentation */
+
+.appel {
+  background: var(--texte);
+  color: var(--fond);
+  border-top: 0;
+}
+
+.appel p {
+  color: color-mix(in srgb, var(--fond) 75%, var(--texte));
+  max-width: 560px;
+  margin: 0;
+}
+
+.appel__grille {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.appel .bouton {
+  background: var(--fond);
+  color: var(--texte);
+  border-color: var(--fond);
+}
+
+.appel .bouton:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--fond);
+}
+
+/* Page de demande */
+
+.section--premiere {
+  border-top: 0;
+  padding-top: 56px;
+}
+
+.demande__titre {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+@media (max-width: 640px) {
+  .appel__grille {
+    grid-template-columns: 1fr;
+  }
+
+  .vitrine .entete__nav {
+    display: flex;
+    gap: 16px;
+  }
+
+  .vitrine .entete__nav a:not(.entete__action) {
+    display: none;
+  }
+}
