@@ -171,6 +171,50 @@
   cursor: pointer;
 }
 
+.autre {
+  flex-wrap: wrap;
+}
+
+.autre input[type="text"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 6px 10px;
+  font-size: 0.95rem;
+}
+
+.choix .autre {
+  grid-column: 1 / -1;
+}
+
+.autre--seul {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.element .autre {
+  margin-top: 6px;
+}
+
+.polices + .autre {
+  margin-top: 12px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+
+.demande input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
 .element {
   padding: 14px 0;
   border-bottom: 1px solid var(--ligne);
@@ -318,7 +362,8 @@
 @media (max-width: 640px) {
   .modeles,
   .champs,
-  .choix {
+  .choix,
+  .options {
     grid-template-columns: 1fr;
   }
 

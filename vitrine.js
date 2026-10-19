@@ -28,6 +28,19 @@
     },
   ];
 
+  const OPTIONS = [
+    "Carte ou menu",
+    "Réservation en ligne",
+    "Prise de rendez-vous",
+    "Galerie photos",
+    "Formulaire de contact",
+    "Avis clients",
+    "Click & collect ou petite boutique",
+    "Version en anglais",
+    "Lien vers mes réseaux",
+    "Mon propre nom de domaine (ex. moncommerce.fr)",
+  ];
+
   const POLICES = [
     { id: "fraunces", nom: "Classique", famille: "'Fraunces', Georgia, serif" },
     { id: "bricolage", nom: "Moderne", famille: "'Bricolage Grotesque', system-ui, sans-serif" },
@@ -59,7 +72,13 @@
 
   $("choix-modele").innerHTML = MODELES.map((m, i) => `
     <label class="choix__option"><input type="radio" name="modele" value="${m.id}"${i === 0 ? " checked" : ""}> ${esc(m.nom)}</label>`
-  ).join("") + `<label class="choix__option"><input type="radio" name="modele" value="aucun"> Je ne sais pas encore</label>`;
+  ).join("") + `
+    <label class="choix__option"><input type="radio" name="modele" value="aucun"> Je ne sais pas encore</label>
+    <label class="choix__option autre"><input type="radio" name="modele" value="autre"> Autre :
+      <input type="text" name="modele_autre" data-autre="modele" placeholder="ex. coiffeur, garage, association..."></label>`;
+
+  $("options").innerHTML = OPTIONS.map((o) => `
+    <label class="choix__option"><input type="checkbox" name="options" value="${esc(o)}"> ${esc(o)}</label>`).join("");
 
   $("choix-police").innerHTML = POLICES.map((p, i) => `
     <label class="police">
@@ -88,6 +107,18 @@
     return champ ? String(champ.value || "").trim() : "";
   }
 
+  // Taper dans un champ « Autre » sélectionne automatiquement l'option correspondante
+  form.querySelectorAll("[data-autre]").forEach((champ) => {
+    champ.addEventListener("input", () => {
+      const radio = form.querySelector(`input[name="${champ.dataset.autre}"][value="autre"]`);
+      if (champ.value.trim()) radio.checked = true;
+    });
+  });
+
+  function autre(groupe) {
+    return valeur(groupe) === "autre" ? valeur(groupe + "_autre") || "à préciser" : "";
+  }
+
   function composerMail() {
     const etablissement = valeur("etablissement") || "[nom de l'établissement]";
     const nom = valeur("nom") || "[votre nom]";
@@ -96,12 +127,15 @@
 
     const joints = [];
     const delegues = [];
+    const precisions = [];
     const autorisations = [];
 
     if (valeur("logo") === "joint") joints.push("Logo");
+    else if (valeur("logo") === "autre") precisions.push("Logo : " + autre("logo"));
     else delegues.push("Logo : je n'en ai pas, mettez simplement mon nom");
 
     if (valeur("photos") === "joint") joints.push("Photos");
+    else if (valeur("photos") === "autre") precisions.push("Photos : " + autre("photos"));
     else {
       delegues.push("Photos");
       autorisations.push("utiliser des photos libres de droits");
@@ -109,6 +143,8 @@
 
     if (police) {
       joints.push(`Style d'écriture : ${police.nom}`);
+    } else if (valeur("police") === "autre") {
+      precisions.push("Style d'écriture : " + autre("police"));
     } else {
       delegues.push("Style d'écriture");
       autorisations.push("choisir des polices de caractères gratuites");
@@ -116,12 +152,15 @@
 
     if (valeur("couleurs") === "choisi") {
       joints.push(`Couleurs : ${valeur("couleur1")} (principale), ${valeur("couleur2")} (fond)`);
+    } else if (valeur("couleurs") === "autre") {
+      precisions.push("Couleurs : " + autre("couleurs"));
     } else {
       delegues.push("Couleurs");
       autorisations.push("choisir les couleurs");
     }
 
     if (valeur("textes") === "joint") joints.push("Textes");
+    else if (valeur("textes") === "autre") precisions.push("Textes : " + autre("textes"));
     else {
       delegues.push("Textes");
       autorisations.push("rédiger les textes à partir de nos échanges");
@@ -135,11 +174,11 @@
       `Établissement : ${etablissement}`,
       valeur("activite") ? `Activité : ${valeur("activite")}` : null,
       `Contact : ${nom}${valeur("telephone") ? ", " + valeur("telephone") : ""}`,
-      `Modèle choisi : ${modele ? modele.nom : "je ne sais pas encore"}`,
-      "",
-      "Ce que je vous fournis :",
-      ...joints.map((j) => "- " + j),
+      `Modèle choisi : ${modele ? modele.nom : valeur("modele") === "autre" ? "autre, " + autre("modele") : "je ne sais pas encore"}`,
     ];
+
+    if (joints.length) lignes.push("", "Ce que je vous fournis :", ...joints.map((j) => "- " + j));
+    if (precisions.length) lignes.push("", "Mes précisions :", ...precisions.map((p) => "- " + p));
 
     if (delegues.length) {
       lignes.push("", "Ce que je vous laisse choisir :", ...delegues.map((d) => "- " + d));
@@ -151,6 +190,10 @@
         : avecA[0];
       lignes.push("", `Je vous autorise à ${liste} pour mon site.`);
     }
+
+    const options = [...form.querySelectorAll('input[name="options"]:checked')].map((c) => c.value);
+    if (valeur("options_autre")) options.push(valeur("options_autre"));
+    if (options.length) lignes.push("", "Ce que j'aimerais sur le site :", ...options.map((o) => "- " + o));
 
     lignes.push(
       "",

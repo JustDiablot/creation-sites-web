@@ -105,23 +105,31 @@
               <p class="element__nom">Logo</p>
               <label><input type="radio" name="logo" value="joint" checked> Je le joins au mail</label>
               <label><input type="radio" name="logo" value="aucun"> Je n'en ai pas : mettez simplement mon nom</label>
+              <label class="autre"><input type="radio" name="logo" value="autre"> Autre :
+                <input type="text" name="logo_autre" data-autre="logo" placeholder="ex. il faudrait le moderniser, il est sur ma carte de visite..."></label>
             </div>
 
             <div class="element">
               <p class="element__nom">Photos</p>
               <label><input type="radio" name="photos" value="joint" checked> Je joins quelques photos (boutique, produits, réalisations)</label>
               <label><input type="radio" name="photos" value="libre"> Choisissez des photos libres de droits</label>
+              <label class="autre"><input type="radio" name="photos" value="autre"> Autre :
+                <input type="text" name="photos_autre" data-autre="photos" placeholder="ex. un mélange des deux, je veux un shooting photo..."></label>
             </div>
 
             <div class="element">
               <p class="element__nom">Style d'écriture</p>
               <div class="polices" id="choix-police"></div>
+              <label class="autre"><input type="radio" name="police" value="autre"> Autre :
+                <input type="text" name="police_autre" data-autre="police" placeholder="ex. comme sur ma devanture, une police manuscrite..."></label>
             </div>
 
             <div class="element">
               <p class="element__nom">Couleurs</p>
               <label><input type="radio" name="couleurs" value="libre" checked> Choisissez pour moi</label>
               <label><input type="radio" name="couleurs" value="choisi"> Je les choisis</label>
+              <label class="autre"><input type="radio" name="couleurs" value="autre"> Autre :
+                <input type="text" name="couleurs_autre" data-autre="couleurs" placeholder="ex. les couleurs de mon logo, pas de rose..."></label>
               <div class="couleurs" id="couleurs" hidden>
                 <label><input type="color" name="couleur1" value="#7a2e2a"> Couleur principale</label>
                 <label><input type="color" name="couleur2" value="#f4efe6"> Couleur de fond</label>
@@ -132,7 +140,17 @@
               <p class="element__nom">Textes</p>
               <label><input type="radio" name="textes" value="joint" checked> Je vous envoie mes textes</label>
               <label><input type="radio" name="textes" value="libre"> Rédigez-les à partir de nos échanges</label>
+              <label class="autre"><input type="radio" name="textes" value="autre"> Autre :
+                <input type="text" name="textes_autre" data-autre="textes" placeholder="ex. j'ai déjà des textes sur Facebook, à reprendre..."></label>
             </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Ce que vous voulez sur le site</legend>
+            <p class="aide">Cochez tout ce qui vous intéresse, même si vous n'êtes pas sûr : on en discutera.</p>
+            <div class="options" id="options"></div>
+            <label class="autre autre--seul">Autre :
+              <input type="text" name="options_autre" placeholder="ex. une page recrutement, une newsletter..."></label>
           </fieldset>
 
           <fieldset>
