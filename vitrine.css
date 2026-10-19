@@ -94,13 +94,43 @@
 
 .hebergement {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: start;
+  margin-top: 64px;
 }
 
-.etapes--deux {
-  grid-template-columns: 1fr 1fr;
+.encadre {
+  border: 1px solid var(--texte);
+  padding: 24px;
+}
+
+.encadre h3 {
+  margin-bottom: 10px;
+}
+
+.encadre p,
+.encadre li {
+  color: var(--doux);
+  font-size: 0.95rem;
+}
+
+.encadre ul {
+  padding-left: 18px;
+  margin: 0 0 12px;
+}
+
+.encadre li + li {
+  margin-top: 8px;
+}
+
+.encadre strong {
+  color: var(--texte);
+  font-weight: 500;
+}
+
+.encadre p:last-child {
+  margin-bottom: 0;
 }
 
 .couts {
@@ -408,8 +438,7 @@
   .modeles,
   .champs,
   .choix,
-  .options,
-  .etapes--deux {
+  .options {
     grid-template-columns: 1fr;
   }
 
