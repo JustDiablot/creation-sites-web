@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valentin Auffray | Création de sites web à Brunoy</title>
+  <meta name="description" content="Sites vitrines simples et soignés pour les commerces, cafés et artisans de Brunoy et des alentours.">
+  <link rel="preload" href="moteur/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="moteur/style.css">
+  <link rel="stylesheet" href="vitrine.css">
+</head>
+<body class="vitrine">
+  <a class="evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="conteneur entete__barre">
+      <a class="entete__nom" href="#haut">Valentin Auffray</a>
+      <nav class="entete__nav" aria-label="Navigation principale">
+        <a href="#modeles">Modèles</a>
+        <a href="#etapes">Comment ça marche</a>
+        <a href="#demande">Votre demande</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="accueil" id="haut">
+      <div class="conteneur">
+        <p class="surtitre">Création de sites web, Brunoy et alentours</p>
+        <h1 class="vitrine__titre">Un site simple et soigné pour votre commerce.</h1>
+        <div class="vitrine__intro">
+          <p>Je m'appelle Valentin, je suis étudiant ingénieur en informatique à l'EFREI et j'habite Brunoy. Je crée des sites vitrines rapides, lisibles sur téléphone et faciles à trouver sur Google.</p>
+          <p class="vitrine__prix" id="prix" hidden></p>
+          <div class="actions">
+            <a class="bouton" href="#modeles">Voir les modèles</a>
+            <a class="bouton bouton--contour" href="#demande">Faire ma demande</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="modeles" aria-labelledby="titre-modeles">
+      <div class="conteneur">
+        <div class="section__entete">
+          <h2 id="titre-modeles">Les modèles</h2>
+          <p>Chaque modèle s'adapte à vos couleurs, votre logo et vos photos. Ouvrez une démo pour la tester, sur ordinateur comme sur téléphone.</p>
+        </div>
+        <div class="modeles" id="liste-modeles"></div>
+      </div>
+    </section>
+
+    <section class="section" id="etapes" aria-labelledby="titre-etapes">
+      <div class="conteneur">
+        <div class="section__entete">
+          <h2 id="titre-etapes">Comment ça marche</h2>
+        </div>
+        <ol class="etapes">
+          <li class="etape">
+            <span class="etape__numero">01</span>
+            <h3>Vous choisissez un modèle</h3>
+            <p>Celui qui ressemble le plus à votre activité. On pourra l'adapter ensuite.</p>
+          </li>
+          <li class="etape">
+            <span class="etape__numero">02</span>
+            <h3>Vous m'envoyez vos éléments</h3>
+            <p>Logo, photos, horaires, carte ou produits. Ce que vous n'avez pas, je m'en occupe.</p>
+          </li>
+          <li class="etape">
+            <span class="etape__numero">03</span>
+            <h3>On ajuste, puis c'est en ligne</h3>
+            <p>Je vous montre une première version, on la corrige ensemble, puis je mets le site en ligne.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="demande" aria-labelledby="titre-demande">
+      <div class="conteneur demande__grille">
+        <form class="demande" id="formulaire" novalidate>
+          <div class="section__entete">
+            <h2 id="titre-demande">Votre demande</h2>
+            <p>Remplissez ces quelques champs : un mail tout prêt est créé, il ne vous reste qu'à y joindre vos fichiers et à l'envoyer.</p>
+          </div>
+
+          <fieldset>
+            <legend>Vous</legend>
+            <div class="champs">
+              <label>Nom de l'établissement <input name="etablissement" required autocomplete="organization"></label>
+              <label>Activité <input name="activite" placeholder="Café, épicerie, menuiserie..."></label>
+              <label>Votre nom <input name="nom" required autocomplete="name"></label>
+              <label>Téléphone <input name="telephone" type="tel" autocomplete="tel"></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Modèle</legend>
+            <div class="choix" id="choix-modele"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Vos éléments</legend>
+            <p class="aide">Pour chaque élément, dites-moi si vous me l'envoyez ou si vous me laissez choisir.</p>
+
+            <div class="element">
+              <p class="element__nom">Logo</p>
+              <label><input type="radio" name="logo" value="joint" checked> Je le joins au mail</label>
+              <label><input type="radio" name="logo" value="aucun"> Je n'en ai pas : mettez simplement mon nom</label>
+            </div>
+
+            <div class="element">
+              <p class="element__nom">Photos</p>
+              <label><input type="radio" name="photos" value="joint" checked> Je joins quelques photos (boutique, produits, réalisations)</label>
+              <label><input type="radio" name="photos" value="libre"> Choisissez des photos libres de droits</label>
+            </div>
+
+            <div class="element">
+              <p class="element__nom">Style d'écriture</p>
+              <div class="polices" id="choix-police"></div>
+            </div>
+
+            <div class="element">
+              <p class="element__nom">Couleurs</p>
+              <label><input type="radio" name="couleurs" value="libre" checked> Choisissez pour moi</label>
+              <label><input type="radio" name="couleurs" value="choisi"> Je les choisis</label>
+              <div class="couleurs" id="couleurs" hidden>
+                <label><input type="color" name="couleur1" value="#7a2e2a"> Couleur principale</label>
+                <label><input type="color" name="couleur2" value="#f4efe6"> Couleur de fond</label>
+              </div>
+            </div>
+
+            <div class="element">
+              <p class="element__nom">Textes</p>
+              <label><input type="radio" name="textes" value="joint" checked> Je vous envoie mes textes</label>
+              <label><input type="radio" name="textes" value="libre"> Rédigez-les à partir de nos échanges</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Remarques</legend>
+            <label class="pleine">Une idée, un site que vous aimez, une contrainte ?
+              <textarea name="remarques" rows="4"></textarea>
+            </label>
+          </fieldset>
+        </form>
+
+        <aside class="apercu" aria-labelledby="titre-apercu">
+          <h3 id="titre-apercu">Votre mail</h3>
+          <p class="apercu__a">À : <span id="adresse"></span></p>
+          <pre class="apercu__texte" id="apercu" tabindex="0"></pre>
+          <div class="actions">
+            <a class="bouton" id="ouvrir-mail" href="#">Ouvrir dans ma messagerie</a>
+            <button class="bouton bouton--contour" type="button" id="copier">Copier le texte</button>
+          </div>
+          <p class="apercu__info" id="info-copie" aria-live="polite"></p>
+          <p class="apercu__info">Pensez à joindre vos fichiers. Si vos photos sont lourdes, envoyez-les avec un lien WeTransfer ou Smash.</p>
+          <p class="apercu__info">Ce site n'enregistre rien : le texte est préparé dans votre navigateur et c'est vous qui envoyez le mail.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="mentions" aria-labelledby="titre-mentions">
+      <div class="conteneur conteneur--etroit legal">
+        <h2 id="titre-mentions">Mentions légales</h2>
+        <p>Éditeur : Valentin Auffray, <span id="mentions-contact"></span></p>
+        <p>Hébergement : GitHub Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis.</p>
+        <p>Ce site ne dépose aucun cookie et ne collecte aucune donnée. Les démonstrations utilisent des noms et des textes fictifs.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur pied__barre">
+      <span>© <span id="annee"></span> Valentin Auffray</span>
+      <a href="#mentions">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script src="vitrine.js"></script>
+</body>
+</html>
