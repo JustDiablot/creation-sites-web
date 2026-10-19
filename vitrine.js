@@ -45,14 +45,14 @@
 
   $("liste-modeles").innerHTML = MODELES.map((m) => `
     <article class="modele">
-      <a class="modele__apercu" href="demos/${m.id}/" target="_blank" rel="noopener" aria-label="Ouvrir la démo ${esc(m.nom)}">
-        <iframe src="demos/${m.id}/" title="Aperçu ${esc(m.nom)}" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+      <a class="modele__apercu" href="demos/${m.id}/index.html" target="_blank" rel="noopener" aria-label="Ouvrir la démo ${esc(m.nom)}">
+        <iframe src="demos/${m.id}/index.html" title="Aperçu ${esc(m.nom)}" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
       </a>
       <h3>${esc(m.nom)}</h3>
       <p class="modele__pour">${esc(m.pour)}</p>
       <ul class="modele__points">${m.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
       <div class="actions">
-        <a class="bouton bouton--contour" href="demos/${m.id}/" target="_blank" rel="noopener">Voir la démo</a>
+        <a class="bouton bouton--contour" href="demos/${m.id}/index.html" target="_blank" rel="noopener">Voir la démo</a>
         <button class="bouton" type="button" data-choisir="${m.id}">Choisir ce modèle</button>
       </div>
     </article>`).join("");

@@ -159,5 +159,5 @@ window.SITE = {
     },
   },
 
-  credit: { texte: "Modèle de démonstration, site réalisé par Valentin Auffray", url: "../../" },
+  credit: { texte: "Modèle de démonstration, site réalisé par Valentin Auffray", url: "../../index.html" },
 };
