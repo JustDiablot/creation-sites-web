@@ -90,6 +90,50 @@
   cursor: pointer;
 }
 
+/* Hébergement */
+
+.hebergement {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.etapes--deux {
+  grid-template-columns: 1fr 1fr;
+}
+
+.couts {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.couts caption {
+  text-align: left;
+  font-family: var(--titre);
+  font-size: 1.2rem;
+  padding-bottom: 12px;
+}
+
+.couts tbody {
+  border-top: 1px solid var(--texte);
+}
+
+.couts th,
+.couts td {
+  padding: 16px;
+  border-bottom: 1px solid var(--ligne);
+  text-align: left;
+  font-weight: 400;
+}
+
+.couts td {
+  text-align: right;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 /* Formulaire de demande */
 
 .demande__grille {
@@ -350,7 +394,8 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .demande__grille {
+  .demande__grille,
+  .hebergement {
     grid-template-columns: 1fr;
   }
 
@@ -363,7 +408,8 @@
   .modeles,
   .champs,
   .choix,
-  .options {
+  .options,
+  .etapes--deux {
     grid-template-columns: 1fr;
   }
 
