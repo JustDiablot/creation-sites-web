@@ -1,9 +1,9 @@
 // Contenu du site : c'est le seul fichier à modifier pour un nouveau client.
 window.SITE = {
-  nom: "Atelier Dolor",
+  nom: "Atelier Charmille",
   type: "HomeAndConstructionBusiness", // référencement Google
   accroche: "Menuiserie sur mesure : cuisines, escaliers, agencements",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Menuiserie sur mesure : réalisations, savoir-faire et devis.",
+  description: "Menuiserie artisanale en Essonne : cuisines, escaliers, dressings et agencements sur mesure en bois massif. Devis gratuit.",
 
   sections: ["savoirfaire", "realisations", "apropos", "devis", "infos"],
   theme: { police: "archivo" },
@@ -28,34 +28,34 @@ window.SITE = {
   },
 
   savoirfaire: {
-    intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper.",
+    intro: "Chaque projet est unique. Du premier rendez-vous à la pose, vous avez un seul interlocuteur.",
     etapes: [
-      { titre: "Visite et conseil", texte: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in." },
-      { titre: "Plans et devis", texte: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur." },
-      { titre: "Fabrication et pose", texte: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula." },
+      { titre: "Visite et conseil", texte: "Je viens chez vous pour prendre les mesures, comprendre vos besoins et vous conseiller sur les essences de bois et les finitions." },
+      { titre: "Plans et devis", texte: "Vous recevez des plans détaillés et un devis clair sous une semaine. On ajuste ensemble jusqu'à ce que tout vous convienne." },
+      { titre: "Fabrication et pose", texte: "Tout est fabriqué à l'atelier, puis posé chez vous avec soin. Le chantier est laissé propre, et la garantie décennale vous couvre." },
     ],
   },
 
   realisations: {
-    intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    intro: "Quelques projets récents, réalisés pour des particuliers de la région.",
     liste: [
-      { titre: "Cuisine en chêne massif", legende: "Lorem ipsum, Brunoy" },
-      { titre: "Escalier suspendu", legende: "Lorem ipsum, Yerres" },
-      { titre: "Bibliothèque sur mesure", legende: "Lorem ipsum, Montgeron" },
-      { titre: "Dressing sous combles", legende: "Lorem ipsum, Épinay-sous-Sénart" },
-      { titre: "Terrasse en bois", legende: "Lorem ipsum, Boussy-Saint-Antoine" },
-      { titre: "Porte d'entrée", legende: "Lorem ipsum, Brunoy" },
+      { titre: "Cuisine en chêne massif", legende: "Chêne huilé, plan de travail en bois debout, Brunoy" },
+      { titre: "Escalier suspendu", legende: "Frêne et garde-corps en acier, Yerres" },
+      { titre: "Bibliothèque sur mesure", legende: "Toute hauteur avec échelle coulissante, Montgeron" },
+      { titre: "Dressing sous combles", legende: "Optimisation des rampants, Épinay-sous-Sénart" },
+      { titre: "Terrasse en bois", legende: "Pin traité classe 4, 35 m², Boussy-Saint-Antoine" },
+      { titre: "Porte d'entrée", legende: "Chêne massif, vitrage feuilleté, Brunoy" },
     ],
   },
 
   apropos: [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.",
-    "Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo.",
+    "Menuisier depuis plus de quinze ans, j'ai ouvert l'atelier en 2016 après avoir travaillé chez plusieurs ébénistes de la région. Je travaille uniquement le bois massif, choisi chez des scieries françaises.",
+    "Petit atelier, grandes exigences : je ne prends qu'un nombre limité de chantiers à la fois pour garder le temps de bien faire. Résultat, des meubles qui traversent les années.",
   ],
 
   devis: {
-    intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Décrivez votre projet, nous vous répondons rapidement.",
-    points: ["Devis gratuit", "Déplacement en Essonne", "Lorem ipsum dolor sit amet"],
+    intro: "Un projet de cuisine, d'escalier ou de rangement ? Décrivez-le en quelques lignes, je vous rappelle sous 48 heures.",
+    points: ["Devis gratuit et sans engagement", "Déplacement offert dans toute l'Essonne", "Garantie décennale"],
   },
 
   contact: {

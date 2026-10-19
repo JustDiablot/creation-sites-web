@@ -4,7 +4,7 @@ window.SITE = {
   type: "CafeOrCoffeeShop", // CafeOrCoffeeShop, BarOrPub ou Restaurant (référencement Google)
   accroche: "Café, brasserie et terrasse au cœur de Brunoy",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Café et brasserie à Brunoy : carte, horaires et contact.",
+    "Café et brasserie au centre de Brunoy : petit-déjeuner, déjeuner du jour, apéritif en terrasse. Carte, horaires et accès.",
 
   sections: ["apropos", "carte", "horaires", "infos"],
   theme: { police: "fraunces" },
@@ -24,8 +24,8 @@ window.SITE = {
   },
 
   apropos: [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.",
-    "Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo.",
+    "Au coin de la rue depuis plus de trente ans, le café a vu passer trois générations d'habitués. On y prend son premier café au comptoir avant le train de 7h42, on y déjeune entre collègues, et on y refait le monde en terrasse le vendredi soir.",
+    "En cuisine, des produits frais livrés chaque matin par des fournisseurs de la région, un plat du jour qui change toutes les semaines et des desserts faits maison. Au bar, un café torréfié à Paris, des bières pression et une petite sélection de vins au verre.",
   ],
 
   contact: {
@@ -90,7 +90,7 @@ window.SITE = {
             { nom: "avec boisson d'avoine", supplement: 0.5, retire: ["lait"], ajoute: ["gluten"] },
           ],
         },
-        { nom: "Thé", prix: 3.2, description: "Lorem ipsum dolor sit amet." },
+        { nom: "Thé", prix: 3.2, description: "Thé noir, vert ou infusion, en vrac." },
       ],
     },
     {
@@ -108,14 +108,14 @@ window.SITE = {
         {
           nom: "Croque-monsieur",
           prix: 9.5,
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          description: "Gratiné au four, servi avec une salade verte.",
           ingredients: ["Pain de mie", "jambon blanc", "emmental", "béchamel"],
           allergenes: ["gluten", "lait", "oeufs"],
         },
         {
           nom: "Salade de saison",
           prix: 12,
-          description: "Lorem ipsum dolor sit amet.",
+          description: "Selon le marché, vinaigrette maison à la moutarde à l'ancienne.",
           ingredients: ["Mesclun", "tomates", "noix", "vinaigrette moutarde"],
           allergenes: ["fruits_a_coque", "moutarde"],
           regimes: ["vegetarien", "sans_gluten"],
