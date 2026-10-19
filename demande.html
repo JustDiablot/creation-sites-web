@@ -17,6 +17,7 @@
       <a class="entete__nom" href="index.html">Valentin Auffray</a>
       <nav class="entete__nav" aria-label="Navigation principale">
         <a href="index.html#modeles">Voir les modèles</a>
+        <a href="index.html#tarifs">Tarifs</a>
         <a href="index.html#hebergement">Hébergement</a>
       </nav>
     </div>
@@ -53,6 +54,8 @@
             <div class="element">
               <p class="element__nom">Logo</p>
               <label><input type="radio" name="logo" value="joint" checked> Je le joins au mail</label>
+              <label data-tarif="logoPropre"><input type="radio" name="logo" value="recuperer"> Récupérez-le (devanture, carte de visite, réseaux) et remettez-le au propre</label>
+              <label data-tarif="logoCreation"><input type="radio" name="logo" value="creer"> Je n'en ai pas : créez-moi un logo simple</label>
               <label><input type="radio" name="logo" value="aucun"> Je n'en ai pas : mettez simplement mon nom</label>
               <label class="autre"><input type="radio" name="logo" value="autre"> Autre :
                 <input type="text" name="logo_autre" data-autre="logo" placeholder="ex. il faudrait le moderniser, il est sur ma carte de visite..."></label>
@@ -88,7 +91,7 @@
             <div class="element">
               <p class="element__nom">Textes</p>
               <label><input type="radio" name="textes" value="joint" checked> Je vous envoie mes textes</label>
-              <label><input type="radio" name="textes" value="libre"> Rédigez-les à partir de nos échanges</label>
+              <label data-tarif="textes"><input type="radio" name="textes" value="libre"> Rédigez-les à partir de nos échanges</label>
               <label class="autre"><input type="radio" name="textes" value="autre"> Autre :
                 <input type="text" name="textes_autre" data-autre="textes" placeholder="ex. j'ai déjà des textes sur Facebook, à reprendre..."></label>
             </div>
@@ -111,6 +114,7 @@
         </form>
 
         <aside class="apercu" aria-labelledby="titre-apercu">
+          <p class="estimation">Estimation indicative <strong id="estimation"></strong></p>
           <h3 id="titre-apercu">Votre mail</h3>
           <p class="apercu__a">À : <span id="adresse"></span></p>
           <pre class="apercu__texte" id="apercu" tabindex="0"></pre>
@@ -119,6 +123,7 @@
             <button class="bouton bouton--contour" type="button" id="copier">Copier le texte</button>
           </div>
           <p class="apercu__info" id="info-copie" aria-live="polite"></p>
+          <p class="apercu__info">L'estimation est indicative : le prix définitif est fixé dans le devis, après notre échange.</p>
           <p class="apercu__info">Pensez à joindre vos fichiers. Si vos photos sont lourdes, envoyez-les avec un lien WeTransfer ou Smash.</p>
           <p class="apercu__info">Ce site n'enregistre rien : le texte est préparé dans votre navigateur et c'est vous qui envoyez le mail.</p>
         </aside>

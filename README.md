@@ -12,7 +12,7 @@ Site de présentation des modèles, à publier sur GitHub Pages. Aucun build, au
 
 ## Réglages de la vitrine
 
-En haut de `vitrine.js`, objet `CONFIG` : adresse mail de réception et tarif affiché (vide = pas de tarif).
+En haut de `vitrine.js` : `CONFIG` (adresse mail, prix de base, offre de lancement, seuil du paiement en trois fois) et `TARIFS` (options). La page Tarifs et l'estimation du formulaire utilisent les mêmes données.
 
 ## Créer le site d'un client
 

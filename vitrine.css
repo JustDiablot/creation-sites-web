@@ -516,3 +516,124 @@
     display: none;
   }
 }
+
+/* Sécurité */
+
+.garanties {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.garanties li {
+  border-top: 2px solid var(--accent);
+  padding-top: 18px;
+}
+
+.garanties h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.garanties p {
+  margin: 0;
+  color: var(--doux);
+  font-size: 0.95rem;
+}
+
+/* Tarifs */
+
+.lancement {
+  margin: 0 0 36px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  max-width: 760px;
+}
+
+.lancement strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.tarifs {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.tarifs__base {
+  border: 1px solid var(--texte);
+  padding: 28px;
+}
+
+.tarifs__libelle {
+  margin: 0;
+  font-weight: 500;
+}
+
+.tarifs__prix {
+  margin: 4px 0 20px;
+  font-family: var(--titre);
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.tarifs__inclus {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.95rem;
+}
+
+.tarifs__inclus li + li {
+  margin-top: 6px;
+}
+
+.tarifs__options th {
+  font-size: 0.95rem;
+}
+
+/* Prix dans le formulaire */
+
+.prix-option {
+  color: var(--accent);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.estimation {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ligne);
+}
+
+.estimation strong {
+  font-family: var(--titre);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+@media (max-width: 960px) {
+  .garanties {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tarifs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .garanties {
+    grid-template-columns: 1fr;
+  }
+}

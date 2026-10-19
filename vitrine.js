@@ -4,7 +4,11 @@
   // Réglages de la vitrine
   const CONFIG = {
     email: "valentin.auffray@proton.me",
-    prix: "", // ex. "Tarif de lancement : 490 €" (laisser vide pour ne rien afficher)
+    prixBase: 490,
+    prixLancement: 390, // laisser à 0 pour retirer l'offre de lancement
+    placesLancement: 3,
+    prixModification: 30,
+    seuilTroisFois: 750,
   };
 
   const MODELES = [
@@ -28,17 +32,42 @@
     },
   ];
 
-  const OPTIONS = [
-    "Carte ou menu",
-    "Réservation en ligne",
-    "Prise de rendez-vous",
-    "Galerie photos",
-    "Formulaire de contact",
-    "Avis clients",
-    "Click & collect ou petite boutique",
-    "Version en anglais",
-    "Lien vers mes réseaux",
-    "Mon propre nom de domaine (ex. moncommerce.fr)",
+  const INCLUS = [
+    "Le modèle de votre choix, à vos couleurs, avec votre logo et vos photos",
+    "Jusqu'à 5 sections : présentation, carte ou produits, galerie, horaires, accès",
+    "Un affichage soigné sur téléphone, tablette et ordinateur",
+    "Deux séries de corrections",
+    "Des photos libres de droits si vous n'en avez pas",
+    "La mise en ligne et le branchement de votre nom de domaine",
+    "Les mentions légales",
+  ];
+
+  // Options payantes : affichées sur la page Tarifs et utilisées pour l'estimation du formulaire
+  const TARIFS = {
+    page: { nom: "Page supplémentaire", prix: 60, unite: "par page" },
+    surmesure: { nom: "Modèle sur mesure, différent des modèles proposés", prix: 150 },
+    textes: { nom: "Rédaction des textes", prix: 60 },
+    logoPropre: { nom: "Récupération et remise au propre d'un logo existant", prix: 25 },
+    logoCreation: { nom: "Création d'un logo simple, à partir de votre nom", prix: 90 },
+    grandeCarte: { nom: "Saisie d'une grande carte (plus de 40 plats)", prix: 30 },
+    anglais: { nom: "Version en anglais", prix: 100 },
+    reservation: { nom: "Réservation ou prise de rendez-vous en ligne, avec votre outil (TheFork, Planity, Calendly...)", prix: 60 },
+    contact: { nom: "Formulaire de contact", prix: 40 },
+    paiement: { nom: "Paiement en ligne de quelques produits (jusqu'à 10)", prix: 150 },
+  };
+
+  // Fonctionnalités proposées dans le formulaire (tarif = clé de TARIFS, absent = inclus)
+  const FONCTIONS = [
+    { nom: "Carte ou menu" },
+    { nom: "Galerie photos" },
+    { nom: "Liens vers mes réseaux sociaux" },
+    { nom: "Mon propre nom de domaine (ex. moncommerce.fr)" },
+    { nom: "Réservation ou prise de rendez-vous en ligne", tarif: "reservation" },
+    { nom: "Formulaire de contact", tarif: "contact" },
+    { nom: "Paiement en ligne de quelques produits", tarif: "paiement" },
+    { nom: "Version en anglais", tarif: "anglais" },
+    { nom: "Une page en plus", tarif: "page" },
+    { nom: "Une grande carte (plus de 40 plats)", tarif: "grandeCarte" },
   ];
 
   const POLICES = [
@@ -54,7 +83,10 @@
     return String(valeur ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   }
 
-  // ---------- Modèles ----------
+  const euros = (n) => `${n} €`;
+  const plus = (cle) => `+${euros(TARIFS[cle].prix)}`;
+
+  // ---------- Page de présentation ----------
 
   if ($("liste-modeles")) $("liste-modeles").innerHTML = MODELES.map((m) => `
     <article class="modele">
@@ -70,14 +102,30 @@
       </div>
     </article>`).join("");
 
+  if ($("prix")) {
+    $("prix").textContent = CONFIG.prixLancement
+      ? `À partir de ${euros(CONFIG.prixBase)}, et ${euros(CONFIG.prixLancement)} pour mes ${CONFIG.placesLancement} premiers clients.`
+      : `À partir de ${euros(CONFIG.prixBase)}.`;
+    $("prix").hidden = false;
+  }
+
+  if ($("tarifs-base")) {
+    $("tarifs-base").textContent = euros(CONFIG.prixBase);
+    $("tarifs-inclus").innerHTML = INCLUS.map((i) => `<li>${esc(i)}</li>`).join("");
+    $("tarifs-options").innerHTML = Object.entries(TARIFS).map(([cle, t]) => `
+      <tr><th scope="row">${esc(t.nom)}</th><td>${plus(cle)}${t.unite ? " " + t.unite : ""}</td></tr>`).join("") + `
+      <tr><th scope="row">Modification après la mise en ligne</th><td>${euros(CONFIG.prixModification)} par demande</td></tr>`;
+    if (CONFIG.prixLancement) {
+      $("tarifs-lancement").innerHTML = `<strong>Offre de lancement : ${euros(CONFIG.prixLancement)} au lieu de ${euros(CONFIG.prixBase)}</strong> pour mes ${CONFIG.placesLancement} premiers clients, en échange d'un avis et de l'autorisation de présenter votre site comme référence.`;
+      $("tarifs-lancement").hidden = false;
+    }
+    $("tarifs-paiement").textContent = `Jusqu'à ${euros(CONFIG.seuilTroisFois)} : 50 % à la commande, 50 % avant la mise en ligne. Au-delà : en trois fois (commande, première version, mise en ligne).`;
+  }
+
   // ---------- Commun aux deux pages ----------
 
   $("annee").textContent = new Date().getFullYear();
   if ($("mentions-contact")) $("mentions-contact").innerHTML = `<a href="mailto:${CONFIG.email}">${CONFIG.email}</a>`;
-  if ($("prix") && CONFIG.prix) {
-    $("prix").textContent = CONFIG.prix;
-    $("prix").hidden = false;
-  }
 
   // ---------- Page de demande ----------
 
@@ -89,11 +137,12 @@
     <label class="choix__option"><input type="radio" name="modele" value="${m.id}"${i === 0 ? " checked" : ""}> ${esc(m.nom)}</label>`
   ).join("") + `
     <label class="choix__option"><input type="radio" name="modele" value="aucun"> Je ne sais pas encore</label>
-    <label class="choix__option autre"><input type="radio" name="modele" value="autre"> Autre :
+    <label class="choix__option autre"><input type="radio" name="modele" value="autre"> Autre, sur mesure (${plus("surmesure")}) :
       <input type="text" name="modele_autre" data-autre="modele" placeholder="ex. coiffeur, garage, association..."></label>`;
 
-  $("options").innerHTML = OPTIONS.map((o) => `
-    <label class="choix__option"><input type="checkbox" name="options" value="${esc(o)}"> ${esc(o)}</label>`).join("");
+  $("options").innerHTML = FONCTIONS.map((f, i) => `
+    <label class="choix__option"><input type="checkbox" name="options" value="${i}"> ${esc(f.nom)}
+      <span class="prix-option">${f.tarif ? plus(f.tarif) : "inclus"}</span></label>`).join("");
 
   $("choix-police").innerHTML = POLICES.map((p, i) => `
     <label class="police">
@@ -106,6 +155,11 @@
       <span class="police__exemple">?</span>
       <span>Choisissez pour moi</span>
     </label>`;
+
+  // Prix affichés à côté des choix qui en ont un
+  form.querySelectorAll("[data-tarif]").forEach((el) => {
+    el.insertAdjacentHTML("beforeend", ` <span class="prix-option">${plus(el.dataset.tarif)}</span>`);
+  });
 
   const modeleDemande = new URLSearchParams(location.search).get("modele");
   const radioModele = form.querySelector(`input[name="modele"][value="${CSS.escape(modeleDemande || "")}"]`);
@@ -130,6 +184,20 @@
     return valeur(groupe) === "autre" ? valeur(groupe + "_autre") || "à préciser" : "";
   }
 
+  function estimation() {
+    const lignes = [];
+    if (valeur("modele") === "autre") lignes.push("surmesure");
+    if (valeur("logo") === "recuperer") lignes.push("logoPropre");
+    if (valeur("logo") === "creer") lignes.push("logoCreation");
+    if (valeur("textes") === "libre") lignes.push("textes");
+    form.querySelectorAll('input[name="options"]:checked').forEach((c) => {
+      const f = FONCTIONS[Number(c.value)];
+      if (f.tarif) lignes.push(f.tarif);
+    });
+    const total = lignes.reduce((somme, cle) => somme + TARIFS[cle].prix, CONFIG.prixBase);
+    return { lignes, total };
+  }
+
   function composerMail() {
     const etablissement = valeur("etablissement") || "[nom de l'établissement]";
     const nom = valeur("nom") || "[votre nom]";
@@ -141,8 +209,11 @@
     const precisions = [];
     const autorisations = [];
 
-    if (valeur("logo") === "joint") joints.push("Logo");
-    else if (valeur("logo") === "autre") precisions.push("Logo : " + autre("logo"));
+    const logo = valeur("logo");
+    if (logo === "joint") joints.push("Logo");
+    else if (logo === "recuperer") delegues.push("Logo : récupérez-le et remettez-le au propre");
+    else if (logo === "creer") delegues.push("Logo : créez-moi un logo simple");
+    else if (logo === "autre") precisions.push("Logo : " + autre("logo"));
     else delegues.push("Logo : je n'en ai pas, mettez simplement mon nom");
 
     if (valeur("photos") === "joint") joints.push("Photos");
@@ -185,14 +256,14 @@
       `Établissement : ${etablissement}`,
       valeur("activite") ? `Activité : ${valeur("activite")}` : null,
       `Contact : ${nom}${valeur("telephone") ? ", " + valeur("telephone") : ""}`,
-      `Modèle choisi : ${modele ? modele.nom : valeur("modele") === "autre" ? "autre, " + autre("modele") : "je ne sais pas encore"}`,
+      `Modèle choisi : ${modele ? modele.nom : valeur("modele") === "autre" ? "sur mesure, " + autre("modele") : "je ne sais pas encore"}`,
     ];
 
     if (joints.length) lignes.push("", "Ce que je vous fournis :", ...joints.map((j) => "- " + j));
     if (precisions.length) lignes.push("", "Mes précisions :", ...precisions.map((p) => "- " + p));
 
     if (delegues.length) {
-      lignes.push("", "Ce que je vous laisse choisir :", ...delegues.map((d) => "- " + d));
+      lignes.push("", "Ce que je vous laisse faire :", ...delegues.map((d) => "- " + d));
     }
     if (autorisations.length) {
       const avecA = autorisations.map((a, i) => (i === 0 ? a : "à " + a));
@@ -202,9 +273,13 @@
       lignes.push("", `Je vous autorise à ${liste} pour mon site.`);
     }
 
-    const options = [...form.querySelectorAll('input[name="options"]:checked')].map((c) => c.value);
+    const options = [...form.querySelectorAll('input[name="options"]:checked')].map((c) => FONCTIONS[Number(c.value)].nom);
     if (valeur("options_autre")) options.push(valeur("options_autre"));
     if (options.length) lignes.push("", "Ce que j'aimerais sur le site :", ...options.map((o) => "- " + o));
+
+    const { lignes: supplements, total } = estimation();
+    lignes.push("", `Estimation indicative : ${euros(total)}`, `- Site vitrine : ${euros(CONFIG.prixBase)}`);
+    supplements.forEach((cle) => lignes.push(`- ${TARIFS[cle].nom} : ${plus(cle)}`));
 
     lignes.push(
       "",
@@ -232,6 +307,7 @@
     const { objet, corps } = composerMail();
     $("apercu").textContent = `Objet : ${objet}\n\n${corps}`;
     $("ouvrir-mail").href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(objet)}&body=${encodeURIComponent(corps)}`;
+    $("estimation").textContent = euros(estimation().total);
   }
 
   $("copier").addEventListener("click", async () => {

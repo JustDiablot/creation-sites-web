@@ -17,7 +17,7 @@
       <a class="entete__nom" href="#haut">Valentin Auffray</a>
       <nav class="entete__nav" aria-label="Navigation principale">
         <a href="#modeles">Modèles</a>
-        <a href="#etapes">Comment ça marche</a>
+        <a href="#tarifs">Tarifs</a>
         <a href="#hebergement">Hébergement</a>
         <a class="entete__action" href="demande.html">Faire ma demande</a>
       </nav>
@@ -30,7 +30,7 @@
         <p class="surtitre">Création de sites web, Brunoy et alentours</p>
         <h1 class="vitrine__titre">Un site simple et soigné pour votre commerce.</h1>
         <div class="vitrine__intro">
-          <p>Je m'appelle Valentin, je suis étudiant ingénieur en informatique à l'EFREI et j'habite Brunoy. Je crée des sites vitrines rapides, lisibles sur téléphone et faciles à trouver sur Google.</p>
+          <p>Je m'appelle Valentin, je suis étudiant ingénieur en cybersécurité à l'EFREI et j'habite Brunoy. Je crée des sites vitrines rapides, sûrs, lisibles sur téléphone et faciles à trouver sur Google.</p>
           <p class="vitrine__prix" id="prix" hidden></p>
           <div class="actions">
             <a class="bouton" href="#modeles">Voir les modèles</a>
@@ -72,6 +72,55 @@
             <p>Je vous montre une première version, on la corrige ensemble, puis je mets le site en ligne.</p>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section" id="securite" aria-labelledby="titre-securite">
+      <div class="conteneur">
+        <div class="section__entete">
+          <h2 id="titre-securite">Un site sûr, sans souci pour vous</h2>
+          <p>La cybersécurité, c'est ma spécialité. Vos sites sont pensés pour ne rien vous coûter en tracas, aujourd'hui comme dans cinq ans.</p>
+        </div>
+        <ul class="garanties">
+          <li>
+            <h3>Pas de cookies, pas de pisteurs</h3>
+            <p>Aucune publicité ni mesure d'audience cachée : pas de bandeau cookies à afficher, et rien de vos visiteurs n'est revendu.</p>
+          </li>
+          <li>
+            <h3>Rien à pirater</h3>
+            <p>Pas de base de données ni d'espace d'administration exposé : les failles qui touchent les sites WordPress ne vous concernent pas.</p>
+          </li>
+          <li>
+            <h3>Connexion sécurisée</h3>
+            <p>Le cadenas HTTPS est inclus, et aucune mise à jour de sécurité n'est à faire de votre côté.</p>
+          </li>
+          <li>
+            <h3>Les obligations légales</h3>
+            <p>Les mentions légales et les informations sur les données personnelles sont fournies avec le site, conformément aux règles de la CNIL.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="tarifs" aria-labelledby="titre-tarifs">
+      <div class="conteneur">
+        <div class="section__entete">
+          <h2 id="titre-tarifs">Tarifs</h2>
+          <p>Un prix fixe, connu à l'avance, sans abonnement.</p>
+        </div>
+        <p class="lancement" id="tarifs-lancement" hidden></p>
+        <div class="tarifs">
+          <div class="tarifs__base">
+            <p class="tarifs__libelle">Site vitrine</p>
+            <p class="tarifs__prix" id="tarifs-base"></p>
+            <ul class="tarifs__inclus" id="tarifs-inclus"></ul>
+          </div>
+          <table class="couts tarifs__options">
+            <caption>Options</caption>
+            <tbody id="tarifs-options"></tbody>
+          </table>
+        </div>
+        <p class="note">Paiement : <span id="tarifs-paiement"></span> TVA non applicable, article 293 B du CGI.</p>
       </div>
     </section>
 
